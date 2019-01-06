@@ -1,0 +1,50 @@
+---
+layout: default
+title: MHA Twitter Sketches
+---
+	<div class="container">
+		<div class="hero">
+			<div class="hero__back hero__back--static"></div>
+			<div class="hero__back hero__back--mover"></div>
+			<div class="hero__front"></div>
+		</div>
+		<header class="codrops-header">
+			<h1 class="codrops-title">My Hero Academia <span>Twitter Sketches</span></h1>
+		</header>
+		<div class="stack-slider">
+			<div class="stacks-wrapper">
+				{% for artist in site.artists %}
+
+				<div class="stack">
+					<h2 class="stack-title"><a href="#" data-text="{{ artist.full_name }}"><span>{{ artist.name }}</span></a></h2>
+
+					{% assign filtered_posts = site.posts | where: 'artist', artist.short_name %}
+					{% for post in filtered_posts %}
+					<div class="item">
+						<div class="item__content">
+							<img src="{{ post.sketch }}:orig" alt="{{ post.title }}" />
+							<h3 class="item__title">{{ post.content }} <span class="item__date">{{ post.date | date_to_string }}</span></h3>
+							<div class="item__details">
+								<ul>
+									<li><i class="icon icon-camera"></i><span>{{ post.title }}</span></li>
+									<li><i class="icon icon-aperture"></i><span><a href="{{ post.twitter }}">Source</a></span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					{% endfor %}
+				</div>
+
+				{% endfor %}
+			</div>
+			<!-- /stacks-wrapper -->
+		</div>
+		<!-- /stacks -->
+		<img class="loader" src="assets/images/three-dots.svg" width="60" alt="Loader image" />
+	</div>
+	<!-- /container -->
+	<!-- Flickity v1.0.0 http://flickity.metafizzy.co/ -->
+	<script src="assets/js/flickity.pkgd.min.js"></script>
+	<script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/main.js"></script>
