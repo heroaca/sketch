@@ -16,7 +16,7 @@ title: MHA Twitter Sketches
 				{% for artist in site.artists %}
 
 				<div class="stack">
-					<h2 class="stack-title"><a href="#" data-text="{{ artist.full_name }}"><span>{{ artist.name }}</span></a></h2>
+					<h2 class="stack-title"><a href="#" data-text="{{ artist.full_name }}"><span>{{ artist.name }}<br/><span style="font-size: 18pt;">{{ artist.position}}</span></span></a></h2>
 
 					{% assign filtered_posts = site.posts | where: 'artist', artist.short_name %}
 					{% for post in filtered_posts %}
