@@ -24,6 +24,15 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 collections:
   artists:
+    output: true
+    permalink: /:title
+
+defaults:
+  - scope:
+      path: ""
+      type: "artists"
+    values:
+      layout: "artist"
 
 # Build settings
 # markdown: kramdown
